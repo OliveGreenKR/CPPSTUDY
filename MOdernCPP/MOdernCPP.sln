@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "brace_init", "MOdernCPP\MOdernCPP.vcxproj", "{40ADA261-9B3F-4018-ABBB-C36A3FFAF9B6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nullptr", "nullptr\nullptr.vcxproj", "{5D541C5A-B209-465B-BFD7-ED398DC37EC4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nullptr,using", "nullptr\nullptr.vcxproj", "{5D541C5A-B209-465B-BFD7-ED398DC37EC4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "enum_class", "enum_class\enum_class.vcxproj", "{242C941D-FBA9-48B8-BCF0-1FD6D8524275}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{5D541C5A-B209-465B-BFD7-ED398DC37EC4}.Release|x64.Build.0 = Release|x64
 		{5D541C5A-B209-465B-BFD7-ED398DC37EC4}.Release|x86.ActiveCfg = Release|Win32
 		{5D541C5A-B209-465B-BFD7-ED398DC37EC4}.Release|x86.Build.0 = Release|Win32
+		{242C941D-FBA9-48B8-BCF0-1FD6D8524275}.Debug|x64.ActiveCfg = Debug|x64
+		{242C941D-FBA9-48B8-BCF0-1FD6D8524275}.Debug|x64.Build.0 = Debug|x64
+		{242C941D-FBA9-48B8-BCF0-1FD6D8524275}.Debug|x86.ActiveCfg = Debug|Win32
+		{242C941D-FBA9-48B8-BCF0-1FD6D8524275}.Debug|x86.Build.0 = Debug|Win32
+		{242C941D-FBA9-48B8-BCF0-1FD6D8524275}.Release|x64.ActiveCfg = Release|x64
+		{242C941D-FBA9-48B8-BCF0-1FD6D8524275}.Release|x64.Build.0 = Release|x64
+		{242C941D-FBA9-48B8-BCF0-1FD6D8524275}.Release|x86.ActiveCfg = Release|Win32
+		{242C941D-FBA9-48B8-BCF0-1FD6D8524275}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
