@@ -21,5 +21,8 @@
     <ClCompile Include="delete.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="override,final.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
