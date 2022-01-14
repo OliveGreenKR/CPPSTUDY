@@ -25,7 +25,7 @@ public:
 		cout << "Knight(Knight&)!" << endl;
 	}
 	
-	Knight(Knight&& knight) //이동 생성자
+	Knight(Knight&& knight) noexcept //이동 생성자
 	{}
 
 	~Knight()
