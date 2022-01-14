@@ -68,13 +68,15 @@ public:
 	Pet* _pet = nullptr;
 };
 
-
-
 void TestKnight_Copy(Knight knight){}
 
 void TestKnight_LValueRef(Knight& knight){}
 void TestKnight_ConstLValueRef(const Knight& knight){}
 void TestKnight_RValueRef(Knight&& knight){}
+
+
+
+
 
 
 #if 0
