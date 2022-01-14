@@ -18,5 +18,8 @@
     <ClCompile Include="enum_class.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="delete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

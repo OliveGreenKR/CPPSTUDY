@@ -25,7 +25,7 @@ enum class ObjectType2
 };
 
 
-#if 1
+#if 0
 int main()
 {
 	double Val1 = PT_Knight;
