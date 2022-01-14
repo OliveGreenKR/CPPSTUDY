@@ -4,7 +4,7 @@ using namespace std;
 class Player
 {
 public:
-	virtual void Attack() final
+	virtual void Attack() //final
 	{
 		cout << "Player!" << endl;
 	}

@@ -28,7 +28,7 @@ void Test_ForwardingRef(T&& param) //전달참조
 }
 
 
-#if 1
+#if 0
 
 int main()
 {
