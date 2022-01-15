@@ -107,11 +107,11 @@ int main()
 	delete k2;*/
 
 
-	SharedPtr<Knight> k2; //k2积己 
+	SharedPtr<Knight> k2; // 积己 (1)
 	{
-	SharedPtr<Knight> k1 = new Knight(); // 积己, 措牢楷魂-> ++ => '1'
-	k2 = k1; //积己, 措涝楷魂 -> ++ => '2'
-	}//k1家戈 -> -- => '1'
+	SharedPtr<Knight> k1 = new Knight(); // 1
+	k2 = k1; //2
+	}
 
 
 
