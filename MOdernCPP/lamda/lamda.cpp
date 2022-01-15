@@ -47,8 +47,12 @@ int main()
 	v.push_back(Item(3, Rarity::Rare, ItemType::Jewelry));
 	v.push_back(Item(4, Rarity::Unique, ItemType::Weapon));
 
-	auto jewlyit = std::find_if(v.begin(), v.end(), 
-		[](Item item) {return (item._itemtype == ItemType::Jewelry); });
+	auto isJewelryLamda = [](Item& item) 
+	{
+		return (item._itemtype == ItemType::Jewelry); 
+	};
+
+	auto jewlyit = std::find_if(v.begin(), v.end(),isJewelryLamda);
 
 	cout << jewlyit->_itemid << endl;
 
