@@ -19,16 +19,17 @@ public:
 
 	void Attack()
 	{
-		if(_target)
+		if(_target.expired() == false)
 		{
-			_target->_hp -= _dmg;
-			cout << "Target HP : " << _target->_hp << endl;
+			auto target = _target.lock();
+			target->_hp -= _dmg;
+			cout << "Target HP : " << target->_hp << endl;
 		}
 	}
 public:
 	int _hp = 100;
 	int _dmg = 10;
-	Knight* _target = nullptr;
+	weak_ptr<Knight> _target;
 
 };
 
@@ -94,7 +95,6 @@ public:
 };
 
 
-
 #if 1
 
 int main()
@@ -106,16 +106,20 @@ int main()
 
 	delete k2;*/
 
+	shared_ptr<Knight> k1 = make_shared<Knight>();
+	//shared_ptr<Knight> k1 (new Knight());// 가능은 하나 위 버젼이 성능이 더 좋음
+	
+	
+	shared_ptr<Knight> k2 = make_shared<Knight>();
+	k1->_target = k2;
+	k2->_target = k1;
+	//k2->_target = nullptr;
+	
+	k1->Attack(); 
+	//k1->_target = nullptr;
+	
 
-	SharedPtr<Knight> k2; //k2생성 
-	{
-	SharedPtr<Knight> k1 = new Knight(); // 생성, 대인연산-> ++ => '1'
-	k2 = k1; //생성, 대입연산 -> ++ => '2'
-	}//k1소멸 -> -- => '1'
-
-
-
-	return 0;
+	return 0; 
 
 
 }
