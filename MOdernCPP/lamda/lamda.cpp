@@ -52,9 +52,39 @@ int main()
 		return (item._itemtype == ItemType::Jewelry); 
 	};
 
+	struct FindByItemType
+	{
+		FindByItemType(ItemType itemtype) : 
+			_itemtype(itemtype)
+		{}
+
+		bool operator()(Item& item)
+		{
+			return item._itemtype == _itemtype;
+		}
+
+	public:
+		ItemType _itemtype;
+
+	};
+
+	ItemType ItemTypeval = ItemType::Jewelry;
+
+	auto FindByItemTypeLamda = 
+	[&](Item& item) 
+	{
+		return item._itemtype == ItemTypeval;
+	};
+
+	/*ItemTypeval = ItemType::Weapon;*/
+
+
 	auto jewlyit = std::find_if(v.begin(), v.end(),isJewelryLamda);
+	auto jewlyit2 = std::find_if(v.begin(), v.end(),FindByItemTypeLamda);
+
 
 	cout << jewlyit->_itemid << endl;
+	cout << jewlyit2->_itemid << endl;
 
 	return 0;
 }
