@@ -109,10 +109,11 @@ int main()
 	shared_ptr<Knight> k1 = make_shared<Knight>();
 	//shared_ptr<Knight> k1 (new Knight());// 가능은 하나 위 버젼이 성능이 더 좋음
 	
-	
+	{
 	shared_ptr<Knight> k2 = make_shared<Knight>();
 	k1->_target = k2;
 	k2->_target = k1;
+	}
 	//k2->_target = nullptr;
 	
 	k1->Attack(); 
