@@ -70,8 +70,8 @@ int main()
 
 	ItemType ItemTypeval = ItemType::Jewelry;
 
-	auto FindByItemTypeLamda = 
-	[&](Item& item) 
+	auto FindByItemLamda = 
+	[&ItemTypeval](Item& item) 
 	{
 		return item._itemtype == ItemTypeval;
 	};
@@ -80,11 +80,38 @@ int main()
 
 
 	auto jewlyit = std::find_if(v.begin(), v.end(),isJewelryLamda);
-	auto jewlyit2 = std::find_if(v.begin(), v.end(),FindByItemTypeLamda);
+	auto jewlyit2 = std::find_if(v.begin(), v.end(),FindByItemLamda);
 
 
 	cout << jewlyit->_itemid << endl;
 	cout << jewlyit2->_itemid << endl;
+
+
+	//{
+	//	class Knight
+	//	{
+	//	public:
+	//		auto ResetHPJob() //함수 객체를 반환
+	//		{
+	//			auto f = [=]()  //이럴경우 사실은 [this]와 같다.
+	//			{
+	//				_hp = 200;
+	//			};
+	//			return f;
+	//		}
+	//	public:
+	//		int _hp = 100;
+	//	};
+
+	//	Knight* k1 = new Knight();
+	//	auto job = k1->ResetHPJob();
+
+	//	delete k1;
+	//	job(); //job의this는 이미 데이터가 날라간 상태, 데이터 오염!!!
+
+	//}
+
+	
 
 	return 0;
 }
