@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "enum_class,delete,override,
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "References", "References\References.vcxproj", "{4D81E9B9-A5D8-43E7-814B-1510BA6B737F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lamda", "lamda\lamda.vcxproj", "{CFC8EC6C-BE33-43FE-9E97-F12EE41E0C2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{4D81E9B9-A5D8-43E7-814B-1510BA6B737F}.Release|x64.Build.0 = Release|x64
 		{4D81E9B9-A5D8-43E7-814B-1510BA6B737F}.Release|x86.ActiveCfg = Release|Win32
 		{4D81E9B9-A5D8-43E7-814B-1510BA6B737F}.Release|x86.Build.0 = Release|Win32
+		{CFC8EC6C-BE33-43FE-9E97-F12EE41E0C2C}.Debug|x64.ActiveCfg = Debug|x64
+		{CFC8EC6C-BE33-43FE-9E97-F12EE41E0C2C}.Debug|x64.Build.0 = Debug|x64
+		{CFC8EC6C-BE33-43FE-9E97-F12EE41E0C2C}.Debug|x86.ActiveCfg = Debug|Win32
+		{CFC8EC6C-BE33-43FE-9E97-F12EE41E0C2C}.Debug|x86.Build.0 = Debug|Win32
+		{CFC8EC6C-BE33-43FE-9E97-F12EE41E0C2C}.Release|x64.ActiveCfg = Release|x64
+		{CFC8EC6C-BE33-43FE-9E97-F12EE41E0C2C}.Release|x64.Build.0 = Release|x64
+		{CFC8EC6C-BE33-43FE-9E97-F12EE41E0C2C}.Release|x86.ActiveCfg = Release|Win32
+		{CFC8EC6C-BE33-43FE-9E97-F12EE41E0C2C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
