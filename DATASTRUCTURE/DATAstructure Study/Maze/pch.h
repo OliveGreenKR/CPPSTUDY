@@ -9,7 +9,48 @@
 
 using namespace std;
 
-class pch
+struct Pos
 {
+	bool operator==(Pos& pos)
+	{return pos.x == x && pos.y == y ;}
+
+	bool operator!=(Pos& pos)
+	{return !( *this == pos); }
+
+	Pos operator+(Pos& pos)
+	{
+		Pos tmp;
+		tmp.y = y + pos.y;
+		tmp.x = x + pos.x;
+
+		return tmp;
+	}
+
+	Pos operator-(Pos& pos)
+	{
+		Pos tmp;
+		tmp.y = y - pos.y;
+		tmp.x = x - pos.x;
+		return tmp;
+	}
+
+	Pos& operator+=(Pos& pos)
+	{
+		x += pos.x;
+		y += pos.y;
+		return *this;
+	}
+
+	int32 y= 0;
+	int32 x = 0;
 };
 
+enum Dir
+{
+	DIR_UP = 0,
+	DIR_LEFT = 1,
+	DIR_DOWN = 2,
+	DIR_RIGHT = 3,
+
+	DIR_COUNT = 4,
+};
