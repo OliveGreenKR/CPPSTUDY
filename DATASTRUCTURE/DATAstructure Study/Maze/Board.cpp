@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Board.h"
+#include "Player.h"
 
 const char* TILE = "бс";
 
@@ -11,9 +12,10 @@ Board::~Board()
 {
 }
 
-void Board::Init(int32 size)
+void Board::Init(int32 size , Player* player)
 {
 	_size = size;
+	_player = player;
 
 	GenerateMap();
 }
@@ -103,6 +105,13 @@ TileType Board::GetTileType(Pos pos)
 
 ConsoleColor Board::GetTileColor(Pos pos)
 {
+	if (GetExitPos() == pos )
+	{
+		return ConsoleColor::BLUE;
+	}
+	if (_player && _player->GetPos() == pos)
+		return ConsoleColor::YELLOW;
+
 	TileType tiletype = GetTileType(pos);
 
 	switch (tiletype)

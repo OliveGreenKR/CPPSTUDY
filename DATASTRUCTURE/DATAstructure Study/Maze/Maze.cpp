@@ -2,7 +2,9 @@
 #include <iostream>
 #include "ConsoleHelper.h"
 #include "Board.h"
+#include "Player.h"
 
+Player player;
 Board board;
 
 using namespace std;
@@ -11,7 +13,8 @@ int main()
 {
 	//초기화
 	uint64 lastTick = 0;
-	board.Init(25);
+	board.Init(25, &player);
+	player.Init(&board);
 	::srand(static_cast<unsigned int>(time(nullptr)));
 
 	while(true)
@@ -27,6 +30,7 @@ int main()
 		//입력
 
 		//로직 -> (온라인이라면 일부는 서버)
+		player.Update(deltaTick);
 
 		//렌더링
 		board.Render();
