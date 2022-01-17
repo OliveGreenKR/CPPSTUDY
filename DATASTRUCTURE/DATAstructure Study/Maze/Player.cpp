@@ -25,7 +25,7 @@ void Player::Init(Board* board)
 			Pos{-1,0}, //UP
 			Pos{0,-1}, //LEFT
 			Pos{1,0}, //DOWN
-			Pos{0,1} //RIGHT
+			Pos{0,1} //RIGHTxc
 		};
 		
 		if (CanGo(pos+front[newDir]))
