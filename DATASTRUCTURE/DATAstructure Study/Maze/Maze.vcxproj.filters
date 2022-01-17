@@ -13,7 +13,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Maze.cpp">
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="ConsoleHelper.cpp">

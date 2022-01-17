@@ -12,6 +12,7 @@ int main()
 	//√ ±‚»≠
 	uint64 lastTick = 0;
 	board.Init(25);
+	::srand(static_cast<unsigned int>(time(nullptr)));
 
 	while(true)
 	{
