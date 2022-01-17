@@ -41,7 +41,7 @@ struct Pos
 		return *this;
 	}
 
-	int32 y= 0;
+	int32 y = 0;
 	int32 x = 0;
 };
 
