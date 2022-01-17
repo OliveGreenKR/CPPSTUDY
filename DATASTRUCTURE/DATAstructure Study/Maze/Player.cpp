@@ -40,7 +40,7 @@ void Player::Init(Board* board)
 		//2. 현재 바라보는 방향으로 전진 할 수 있는가?
 		else if (CanGo(pos + front[newDir]))
 		{
-			//	앞으로 한 보 전진
+			// >>앞으로 한 보 전진
 			pos += front[_dir];
 			_path.push_back(pos);
 		}
