@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Player.h"
 #include "Board.h"
+#include <stack>
 
 void Player::Init(Board* board)
 {
@@ -49,6 +50,36 @@ void Player::Init(Board* board)
 			//3. 왼쪽 방향으로 90도 회전
 			_dir = (_dir + 1) % DIR_COUNT;
 		}
+
+		//-----------path 계산 끝----------
+
+		stack<Pos> s;
+		for(int i = 0;  i < _path.size()-1 ; i++)
+		{
+			if (!s.empty() && s.top() == _path[i + 1])
+			{
+				s.pop();
+			}
+			else
+				s.push(_path[i]);
+		}
+
+		//목적지 좌표
+		if (!_path.empty())
+		{
+			s.push(_path.back());
+		}
+		// 역순서로 일단 벡터에 저장
+		vector<Pos> path;
+		while (!s.empty())
+		{
+			path.push_back(s.top());
+			s.pop();
+		}
+		//순서 reverse
+		std::reverse(path.begin(), path.end());
+
+		_path = path;
 	}
 }
 
