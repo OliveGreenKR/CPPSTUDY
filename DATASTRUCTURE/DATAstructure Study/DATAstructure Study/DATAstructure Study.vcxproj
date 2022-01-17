@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="myQueue.cpp" />
     <ClCompile Include="myStack.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
