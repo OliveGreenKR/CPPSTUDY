@@ -58,7 +58,13 @@ void Board::GenerateMap()
 		{
 			if (x % 2 == 0 || y % 2 == 0)
 				continue;
-			
+			//마지막 꼭짓점
+			if(y == _size - 2 && x == _size - 2)
+			{
+				_tile[y][x + 1] = TileType::WALL;
+				continue;
+			}
+			//최외각벽 
 			if (y == _size - 2)
 			{
 				_tile[y][x+1] = TileType::EMPTY;
@@ -69,7 +75,7 @@ void Board::GenerateMap()
 				_tile[y+1][x] = TileType::EMPTY;
 				continue;
 			}
-
+			//랜덤으로 길 생성
 			const int32 randValue = ::rand() % 2;
 			if (randValue == 0)
 			{
