@@ -2,17 +2,11 @@
 #include "Player.h"
 #include "Board.h"
 #include <stack>
-
-void Player::Init(Board* board)
+void Player::RightHand()
 {
-	_pos = _board->GetEnterPos();
-	_board = board;
-
-	//경로 계산
-
 	//목적지 도착 전에는 계속 실행
 	Pos pos = _pos;
-	Pos dest = board->GetExitPos();
+	Pos dest = _board->GetExitPos();
 
 	_path.clear();
 	_path.push_back(pos);
@@ -28,12 +22,12 @@ void Player::Init(Board* board)
 			Pos{1,0}, //DOWN
 			Pos{0,1} //RIGHTxc
 		};
-		
-		if (CanGo(pos+front[newDir]))
+
+		if (CanGo(pos + front[newDir]))
 		{
-		//	>>오른쪽 방향으로 90도 회전
+			//	>>오른쪽 방향으로 90도 회전
 			_dir = newDir;
-		//	>>앞으로 한 보 전진.
+			//	>>앞으로 한 보 전진.
 			pos += front[_dir];
 
 			_path.push_back(pos);
@@ -54,7 +48,7 @@ void Player::Init(Board* board)
 		//-----------path 계산 끝----------
 
 		stack<Pos> s;
-		for(int i = 0;  i < _path.size()-1 ; i++)
+		for (int i = 0; i < _path.size() - 1; i++)
 		{
 			if (!s.empty() && s.top() == _path[i + 1])
 			{
@@ -81,6 +75,13 @@ void Player::Init(Board* board)
 
 		_path = path;
 	}
+}
+void Player::Init(Board* board)
+{
+	_pos = _board->GetEnterPos();
+	_board = board;
+
+	//경로계산
 }
 
 void Player::Update(uint64 deltaTick)
