@@ -1,3 +1,4 @@
+#if 0
 #include <iostream>
 #include <vector>
 #include<queue>
@@ -84,7 +85,7 @@ void Bfs(int here)
 			parent[there] = here;
 			distance[there] = distance[here] + 1;
 		}
-	}
+}
 #endif // List
 
 #ifdef Matrix
@@ -118,10 +119,10 @@ void Bfs(int here)
 }
 void BfsAll()
 {
-	for(int i = 0 ; i < vertices.size(); i++)
+	for (int i = 0; i < vertices.size(); i++)
 	{
-		if(discovered[i] == false)
-		Bfs(i);
+		if (discovered[i] == false)
+			Bfs(i);
 	}
 }
 
@@ -130,8 +131,10 @@ int main()
 {
 	discovered = vector<bool>(6, false);
 	CreateGraph();
-	
+
 	Bfs(0);
 	/*BfsAll();*/
 }
 #endif // 1
+
+#endif // 0

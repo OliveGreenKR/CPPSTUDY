@@ -6,5 +6,6 @@
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Graph_DFS.cpp" />
     <ClCompile Include="Graph_BFS.cpp" />
+    <ClCompile Include="다익스트라.cpp" />
   </ItemGroup>
 </Project>
