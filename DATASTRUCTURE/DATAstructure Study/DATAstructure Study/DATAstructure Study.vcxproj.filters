@@ -3,5 +3,6 @@
   <ItemGroup>
     <ClCompile Include="myStack.cpp" />
     <ClCompile Include="myQueue.cpp" />
+    <ClCompile Include="Graph.cpp" />
   </ItemGroup>
 </Project>

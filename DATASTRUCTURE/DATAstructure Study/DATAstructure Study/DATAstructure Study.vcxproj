@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="myQueue.cpp" />
     <ClCompile Include="myStack.cpp" />
   </ItemGroup>
