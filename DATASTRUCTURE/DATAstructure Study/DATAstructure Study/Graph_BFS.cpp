@@ -8,7 +8,8 @@
 
 using namespace std;
 
-#define List
+//#define List
+#define Matrix
 
 struct Vertex
 {
@@ -61,6 +62,7 @@ void Bfs(int here)
 	discovered[here] = true;
 	parent[here] = here;
 	distance[here] = 0;
+#ifdef List
 
 	//반복
 	while (q.empty() == false)
@@ -83,6 +85,35 @@ void Bfs(int here)
 			distance[there] = distance[here] + 1;
 		}
 	}
+#endif // List
+
+#ifdef Matrix
+	//반복
+	while (q.empty() == false)
+	{
+		//발견(pop)
+		here = q.front();
+		q.pop();
+
+		cout << "visited : " << here << endl;
+
+		//행렬은 모든 연결관계가 표현되어있으므로 행순환
+		for (int there = 0; there < 6; there++)
+		{
+			if (adjacent[here][there] == 0)
+				continue;
+			if (discovered[there])
+				continue;
+			//방문(push)
+			q.push(there);
+			discovered[there] = true;
+
+			parent[there] = here;
+			distance[there] = distance[here] + 1;
+		}
+	}
+
+#endif // Matrix
 
 }
 void BfsAll()
