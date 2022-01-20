@@ -78,7 +78,7 @@ void PrintTree(NodeRef root, int depth)
 			cout << "-";
 		cout << " ";
 	}
-	//재귀적 속성 이용(fractal)
+	//재귀적(recursion) 속성 이용(fractal)
 	cout << root->data << endl;
 
 	for (NodeRef& child : root->children)
