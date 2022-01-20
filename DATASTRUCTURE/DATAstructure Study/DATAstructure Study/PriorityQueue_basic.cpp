@@ -8,7 +8,7 @@
 
 using namespace std;
 
-template<typename T, class Container =  vector<T>>
+template<typename T, class Container =  vector<T> , class Predicate = less<T>>
 class Priority_Queue
 {
 public:
@@ -26,7 +26,9 @@ public:
 		{
 			int parent = (now - 1) / 2;
 
-			if (_container[parent] > _container[now])
+			/*if (_container[parent] > _container[now])
+				break;*/
+			if (_predicate(_container[now] , _container[parent]))
 				break;
 
 			::swap(_container[parent], _container[now]);
@@ -54,11 +56,11 @@ public:
 			int next = now;
 
 			//compare to left
-			if (_container[next] < _container[child1])
+			if (_predicate(_container[next] ,_container[child1]))
 				next = child1;
 
 			//둘 중 승자를 오른쪽과 비교
-			if (child2 < _container.size() && _container[next] < _container[child2])
+			if (child2 < _container.size() && _predicate(_container[next] ,_container[child2]))
 				next = child2;
 			
 			if (next == now)
@@ -82,6 +84,7 @@ public:
 
 private:
 	Container _container;
+	Predicate _predicate;
 
 	void Arrange()
 	{
@@ -98,7 +101,7 @@ private:
 int main()
 {
 	/*priority_queue<int> pq;*/
-	Priority_Queue<int> pq;
+	Priority_Queue<int,vector<int>,::greater<int>> pq;
 
 
 	pq.push(100);
