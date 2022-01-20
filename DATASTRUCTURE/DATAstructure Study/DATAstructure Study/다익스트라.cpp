@@ -98,11 +98,10 @@ void Dijikstra(int here)
 
 
 
-#if 1
+#if 0
 int main()
 {
 	CreatGraph_4();
 	Dijikstra(0);
-
 }
 #endif // 1
