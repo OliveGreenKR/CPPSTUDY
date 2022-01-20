@@ -22,6 +22,7 @@
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Graph_BFS.cpp" />
     <ClCompile Include="Graph_DFS.cpp" />
+    <ClCompile Include="Heap_basic.cpp" />
     <ClCompile Include="myQueue.cpp" />
     <ClCompile Include="myStack.cpp" />
     <ClCompile Include="Tree_basic.cpp" />

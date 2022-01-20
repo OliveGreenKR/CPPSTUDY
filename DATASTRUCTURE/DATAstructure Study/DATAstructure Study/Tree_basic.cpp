@@ -5,13 +5,14 @@
 #include <list>
 #include <string>
 
+#if 0
 using namespace std;
 using NodeRef = shared_ptr<struct Node>;
 
 struct Node
 {
 	Node() {}
-	Node(const string data) :  data(data) {}
+	Node(const string data) : data(data) {}
 
 	string data;
 	vector<NodeRef> children;
@@ -72,9 +73,9 @@ NodeRef CreateTree()
 
 void PrintTree(NodeRef root, int depth)
 {
-	for(int i= 0 ;  i < depth ; i++)
+	for (int i = 0; i < depth; i++)
 	{
-		if (i == depth-1)
+		if (i == depth - 1)
 			cout << "-";
 		cout << " ";
 	}
@@ -83,7 +84,7 @@ void PrintTree(NodeRef root, int depth)
 
 	for (NodeRef& child : root->children)
 	{
-		PrintTree(child, depth+1);
+		PrintTree(child, depth + 1);
 	}
 }
 
@@ -93,16 +94,18 @@ int GetHeight(const NodeRef& root)
 	int height = 1;
 	for (NodeRef& child : root->children)
 	{
-		height = max(height, GetHeight(child)+1 );
+		height = max(height, GetHeight(child) + 1);
 	}
 	return height;
 }
 
-#if 1
+#if 0
 int main()
 {
-	NodeRef root = 	CreateTree();
-	PrintTree(root,0);
+	NodeRef root = CreateTree();
+	PrintTree(root, 0);
 	cout << "height of tree : " << GetHeight(root) << endl;
 }
 #endif // 1
+
+#endif // 0
