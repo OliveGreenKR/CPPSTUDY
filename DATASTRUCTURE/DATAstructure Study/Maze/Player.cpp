@@ -172,9 +172,9 @@ void Player::AStar()
 	Pos start = _pos;
 	Pos dest = _board->GetExitPos();
 
-	enum
+	enum 
 	{
-		DIR_COUNT = 4
+		DIR_COUNT = 4  //way
 	};
 
 	Pos front[] =
@@ -237,6 +237,7 @@ void Player::AStar()
 
 		// 동일한 좌표를 여러 경로를 찾아서,
 		// 더빠른 경로로 인해서 이미 방문했을 경우 스킵
+
 		/*if (closed[node.pos.y][node.pos.x])
 			continue;*/
 		if (best[node.pos.y][node.pos.x] < node.f)
