@@ -147,6 +147,50 @@ void Player::Bfs()
 	std::reverse(_path.begin(), _path.end());
 }
 
+void Player::AStar()
+{
+	//평가 시스템
+	// F = G + H 공식 사용할 것.
+	//F = 최종점수, 작을 수록 좋다, 경로에 따라 달라질것
+	//	G =  시작점에서 해당 좌표까지 이동하는데 걸리는 비용, 경로에 다라 달라짐, 작을수록 좋음
+	//	H =  목적지에서 얼마나 가까운지, 작을수록 좋다, 경로와 무관한 고정값
+
+	Pos start = _pos;
+	Pos dest = _board->GetExitPos();
+
+	enum
+	{
+		DIR_COUNT = 4
+	};
+
+	Pos front[] =
+	{
+		Pos{-1,0}, //UP
+		Pos{0,-1}, //LEFT
+		Pos{1,0}, //DOWN
+		Pos{0,1}, //RIGHT
+		Pos{-1,-1}, //up_left
+		Pos{1,-1}, //down_left
+		Pos{1,1}, //down_right
+		Pos{-1,1}, //up_right
+
+	};
+
+	//이동비용
+	int32 cost[] =
+	{
+		10, //up
+		10, //left
+		10,	//down
+		10, //right
+		14, //up left
+		14, //down left
+		14,	//up right
+		14,	//down left
+	};
+
+	const int32 size = _board->GetSize();
+}
 void Player::Init(Board* board)
 {
 	_pos = _board->GetEnterPos();
@@ -154,7 +198,8 @@ void Player::Init(Board* board)
 
 	//경로계산
 	//RightHand();
-	Bfs();
+	//Bfs();
+	AStar();
 }
 
 void Player::Update(uint64 deltaTick)
