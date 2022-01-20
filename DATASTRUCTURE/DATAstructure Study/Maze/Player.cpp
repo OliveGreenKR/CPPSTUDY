@@ -147,6 +147,20 @@ void Player::Bfs()
 	std::reverse(_path.begin(), _path.end());
 }
 
+struct PQNode
+{
+	bool operator<(const PQNode& other) const
+	{
+		return f < other.f;
+	}
+	bool operator>(const PQNode& other) const
+	{
+		return f > other.f;
+	}
+	int32 f; // f= g+h
+	int32 g;
+	Pos pos;
+};
 void Player::AStar()
 {
 	//평가 시스템
@@ -190,7 +204,93 @@ void Player::AStar()
 	};
 
 	const int32 size = _board->GetSize();
+
+	//ClosedList _ '방문'한 목록(optional)- best로만해도 구현가능
+	//closed[y][x] = 이 좌표에 방문했는지
+	/*vector<vector<bool>> closed(size, vector<bool>(size, false));*/
+	
+	//best[y][x] =  지금까지 해당 좌표에 대한 최소비용
+	vector<vector<int32>>best(size, vector<int32>(size, INT32_MAX));
+
+	//부모 추적용도
+	map<Pos, Pos> parent;
+
+	//OpenList - 예약(발견)하는 것을 관리하는 자료시스템을 말한다.
+	priority_queue<PQNode, vector<PQNode>, ::greater<PQNode>> pq;
+
+	//	1) 예약(발견) 시스템  -> 최소값만을 이용할것 -> 우선순위 큐 사용
+	//	2) 뒤늦게 더 좋은 경로가 발견될 수 있음 -> 예외 처리 필수!
+
+	{//초기값설정
+		int32 g = 0;
+		//공식은 사용자가 정하는것
+		int32 h = 10 * (abs(dest.y - start.y) + abs(dest.x - start.x)); 
+		pq.push(PQNode{ g + h , g, start });
+		best[start.y][start.x] = g + h;
+		parent[start] = start;
+	}
+	while (pq.empty() == false)
+	{
+		//best 후보
+		PQNode node = pq.top();
+		pq.pop();
+
+		// 동일한 좌표를 여러 경로를 찾아서,
+		// 더빠른 경로로 인해서 이미 방문했을 경우 스킵
+		/*if (closed[node.pos.y][node.pos.x])
+			continue;*/
+		if (best[node.pos.y][node.pos.x] < node.f)
+			continue;
+
+		//방문
+		/*closed[node.pos.y][node.pos.x] = true;*/
+
+		//목적지에 도착하면 종료
+		if (node.pos == dest)
+			break;
+
+		for (int32 dir = 0; dir < DIR_COUNT; dir++)
+		{
+			Pos nextpos = node.pos + front[dir];
+			//다음지역의 가능여부 
+			if (CanGo(nextpos) == false)
+				continue;
+
+			//nextpos 의 비용 계산
+			int32 g = node.g + cost[dir];
+			int32 h = 10 * (abs(dest.y - nextpos.y) + abs(dest.x - nextpos.x));
+
+			//이미 있는 경로의 비용과 비교
+			if (best[nextpos.y][nextpos.x] <= g + h)
+				continue;
+
+			//예약진행
+			best[nextpos.y][nextpos.x] = g + h; 
+			pq.push(PQNode{ g + h, g, nextpos });
+			parent[nextpos] = node.pos;
+		}
+
+		//거꾸로 거슬러 올라가 경로로 만든다.
+		_path.clear();
+		_pathindex = 0;
+
+		start = dest;
+		while (true)
+		{
+			_path.push_back(start);
+
+			//시작점은 자기 자신이 부모라는 특징이있음
+			if (parent[start] == start)
+				break;
+			start = parent[start];
+		}
+
+		//경로 reverse
+		std::reverse(_path.begin(), _path.end());
+
+	}
 }
+
 void Player::Init(Board* board)
 {
 	_pos = _board->GetEnterPos();
@@ -206,8 +306,12 @@ void Player::Update(uint64 deltaTick)
 {
 	//이동 ..
 	if (_pathindex >= _path.size())
+	{
+		_board->GenerateMap();
+		Init(_board);
 		return;
-
+	}
+	
 	_sumTick += deltaTick;
 	if (_sumTick >= MOVE_TICK)
 	{
