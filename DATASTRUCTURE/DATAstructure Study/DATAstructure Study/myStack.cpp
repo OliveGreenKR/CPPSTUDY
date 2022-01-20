@@ -1,3 +1,4 @@
+#if 0
 #include <iostream>
 #include <stack>
 #include <vector>
@@ -74,3 +75,4 @@ int main()
 		size << endl;
 }
 #endif // 1
+#endif
