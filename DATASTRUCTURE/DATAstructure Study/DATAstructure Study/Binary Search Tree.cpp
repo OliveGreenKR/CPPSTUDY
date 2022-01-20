@@ -12,7 +12,7 @@ vector<int> numbers;
 
 void BinarySearch(int N)
 {
-	int last = static_cast<int>(numbers.size());
+	int last = static_cast<int>(numbers.size())-1;
 	int start = 0;
 
 	while(true)
@@ -33,11 +33,11 @@ void BinarySearch(int N)
 
 		if (numbers[middle] < N)
 		{
-			start = middle;
+			start = middle+1;
 			continue;
 		}
 
-		last = middle;
+		last = middle-1;
 
 	}
 }
