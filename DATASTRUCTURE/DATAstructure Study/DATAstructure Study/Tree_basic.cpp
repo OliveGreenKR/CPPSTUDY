@@ -83,16 +83,26 @@ void PrintTree(NodeRef root, int depth)
 
 	for (NodeRef& child : root->children)
 	{
-		PrintTree(child, ++depth);
+		PrintTree(child, depth+1);
 	}
 }
 
-#if 1
+int GetHeight(const NodeRef& root)
+{
+	//children마다 깊이가 다를 수 있음!
+	int height = 1;
+	for (NodeRef& child : root->children)
+	{
+		height = max(height, GetHeight(child)+1 );
+	}
+	return height;
+}
 
+#if 1
 int main()
 {
 	NodeRef root = 	CreateTree();
 	PrintTree(root,0);
-
+	cout << "height of tree : " << GetHeight(root) << endl;
 }
 #endif // 1
