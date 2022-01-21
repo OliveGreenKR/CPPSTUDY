@@ -9,7 +9,7 @@
     <ClCompile Include="다익스트라.cpp" />
     <ClCompile Include="Tree_basic.cpp" />
     <ClCompile Include="PriorityQueue_basic.cpp" />
-    <ClCompile Include="Binary Search.cpp" />
+    <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
   </ItemGroup>
   <ItemGroup>

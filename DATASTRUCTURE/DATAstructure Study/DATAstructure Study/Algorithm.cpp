@@ -7,6 +7,8 @@
 using namespace std;
 
 #include "BinarySearchTree.h"
+#include <thread>
+
 
 #if 0
 vector<int> numbers;
@@ -69,23 +71,29 @@ int main()
 	BinarySearchTree bst;
 	
 	bst.Insert(20);
-	bst.Insert(10);
-	bst.Insert(30);
-	bst.Insert(25);
-	bst.Insert(26);
-	bst.Insert(40);
-	bst.Insert(50);
-
-	Node* root = bst.Getroot();
-	
-	bst.Delete(20);
-	bst.Delete(26);
-	bst.Delete(30);
 	bst.Print();
+	this_thread::sleep_for(1s);
 
-	//Node* max = bst.Max(root);
-	//Node* min = bst.Min(root);
-	//Node* next = bst.Next(bst.Search(26));
+	bst.Insert(10);
+	bst.Print();
+	this_thread::sleep_for(1s);
+
+	bst.Insert(30);
+	bst.Print();
+	this_thread::sleep_for(1s);
+
+	bst.Insert(25);
+	bst.Print();
+	this_thread::sleep_for(1s);
+
+
+	bst.Insert(40);
+	bst.Print();
+	this_thread::sleep_for(1s);
+
+	bst.Insert(50);
+	bst.Print();
+	this_thread::sleep_for(1s);
 
 }
 #endif // 1
