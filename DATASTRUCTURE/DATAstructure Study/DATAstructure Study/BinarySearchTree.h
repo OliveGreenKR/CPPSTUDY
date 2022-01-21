@@ -36,7 +36,7 @@ public:
 	BinarySearchTree();
 	~BinarySearchTree();
 
-	void Print() { Print(_root, 10, 0); }
+	void Print();
 	void Print(Node* node, int x, int y);
 
 	void Insert(int key);
@@ -51,6 +51,7 @@ public:
 
 	void Delete(int key);
 	void Delete(Node* node);
+	void DeleteFixup(Node* node);
 
 	void Replace(Node* u, Node* v);
 	Node* const Getroot() { return _root; }
