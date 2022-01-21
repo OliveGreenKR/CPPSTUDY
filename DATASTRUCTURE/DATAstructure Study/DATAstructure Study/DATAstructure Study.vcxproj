@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Graph_BFS.cpp" />
     <ClCompile Include="Graph_DFS.cpp" />
@@ -27,7 +28,10 @@
     <ClCompile Include="myStack.cpp" />
     <ClCompile Include="Tree_basic.cpp" />
     <ClCompile Include="다익스트라.cpp" />
-    <ClCompile Include="Binary Search Tree.cpp" />
+    <ClCompile Include="Binary Search.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BinarySearchTree.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

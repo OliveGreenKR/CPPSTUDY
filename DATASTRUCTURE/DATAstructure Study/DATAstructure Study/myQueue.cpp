@@ -1,3 +1,4 @@
+#if 0
 #include <iostream>
 #include <stack>
 #include <vector>
@@ -116,7 +117,7 @@ int main()
 	{
 		q.push(i);
 	}
-	
+
 	while (!q.empty())
 	{
 		int val = q.front();
@@ -127,3 +128,5 @@ int main()
 	int size = q.size();
 }
 #endif // 1
+
+#endif // 0

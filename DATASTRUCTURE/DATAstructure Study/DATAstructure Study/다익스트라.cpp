@@ -1,3 +1,4 @@
+#if 0
 #include <iostream>
 #include <vector>
 #include<queue>
@@ -12,7 +13,7 @@ struct Vertex
 };
 
 vector<Vertex> vertecies;
-vector<vector<int>> adjacent;  
+vector<vector<int>> adjacent;
 
 
 void CreatGraph_4()
@@ -20,7 +21,7 @@ void CreatGraph_4()
 	vertecies.resize(6);;
 
 	adjacent = vector<vector<int>>(6, vector<int>(6, -1));//가중치가 기록된 행렬
-	
+
 	adjacent[0][1] = 15;
 	adjacent[0][3] = 35;
 	adjacent[1][0] = 15;
@@ -43,20 +44,20 @@ void Dijikstra(int here)
 	vector<int> best(vertecies.size(), INT32_MAX); //각 정점별로 지금까지 발견한 최소거리
 	vector<int> parent(vertecies.size(), -1);
 	//초기시작점
-	discovered.push_back(VertexCost{here,0});
+	discovered.push_back(VertexCost{ here,0 });
 	best[here] = 0;
 	parent[here] = here;
 
 	while (discovered.empty() == false)
 	{
-		
+
 		list<VertexCost>::iterator bestit;
 		int bestCost = INT32_MAX;
 		//제일 좋은 후보를 찾는다
 		for (auto it = discovered.begin(); it != discovered.end(); ++it)
 		{
 			const int cost = it->cost;
-			 //가중치를 비교하며 선택
+			//가중치를 비교하며 선택
 			if (cost < bestCost)
 			{
 				bestCost = cost;
@@ -67,11 +68,11 @@ void Dijikstra(int here)
 		int cost = bestit->cost;
 		here = bestit->vertex;
 		discovered.erase(bestit);
-		
+
 		//이미 더 짧은 경로가 있다면 스킵
 		if (best[here] < cost)
-			continue; 
-		
+			continue;
+
 		//간선 방문
 		for (int there = 0; there < vertecies.size(); there++)
 		{
@@ -90,10 +91,10 @@ void Dijikstra(int here)
 			discovered.push_back(VertexCost{ there,nextCost });
 			best[there] = nextCost;
 			parent[there] = here;
-			
+
 		}
 	}
-	
+
 }
 
 
@@ -105,3 +106,5 @@ int main()
 	Dijikstra(0);
 }
 #endif // 1
+
+#endif // 0
