@@ -1,3 +1,4 @@
+#if 0
 #include <iostream>
 #include <vector>
 #include<queue>
@@ -69,7 +70,7 @@ int main()
 int main()
 {
 	BinarySearchTree bst;
-	
+
 	bst.Insert(20);
 	bst.Print();
 	this_thread::sleep_for(1s);
@@ -98,3 +99,5 @@ int main()
 }
 #endif // 1
 
+
+#endif // 0

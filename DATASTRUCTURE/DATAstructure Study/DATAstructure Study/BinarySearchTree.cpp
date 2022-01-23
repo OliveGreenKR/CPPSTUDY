@@ -1,3 +1,4 @@
+#if 0
 #include "BinarySearchTree.h"
 #include <iostream>
 #include <Windows.h>
@@ -37,7 +38,7 @@ void SetConsoleCursor(bool flag)
 	::SetConsoleCursorInfo(output, &cursorinfo);
 }
 
-BinarySearchTree::BinarySearchTree() 
+BinarySearchTree::BinarySearchTree()
 {
 	_nil = new Node();
 	_root = _nil;
@@ -61,7 +62,7 @@ void BinarySearchTree::Print(Node* node, int x, int y)
 
 	SetCursorPosition(x, y);
 
-	if(node->color == Color::Black)
+	if (node->color == Color::Black)
 	{
 		SetCursorColor(ConsoleColor::BLUE);
 	}
@@ -70,8 +71,8 @@ void BinarySearchTree::Print(Node* node, int x, int y)
 		SetCursorColor(ConsoleColor::RED);
 	}
 	cout << node->key;
-	Print(node-> left, x - (5 / (y + 1)), y + 1);
-	Print(node-> right, x + (5 / (y + 1)), y + 1);
+	Print(node->left, x - (5 / (y + 1)), y + 1);
+	Print(node->right, x + (5 / (y + 1)), y + 1);
 
 	SetCursorColor(ConsoleColor::WHITE);
 }
@@ -85,7 +86,7 @@ void BinarySearchTree::Insert(int key)
 	Node* node = _root;
 	Node* parent = _nil;
 
-	while (node!= _nil)
+	while (node != _nil)
 	{
 		parent = node; //root
 
@@ -133,7 +134,7 @@ void BinarySearchTree::InsertFixup(Node* node)
 				node->parent->parent->color = Color::Red;
 				node->parent->color = Color::Black;
 				uncle->color = Color::Black;
-				
+
 				//조부모님 반복
 				node = node->parent->parent;
 			}
@@ -146,12 +147,12 @@ void BinarySearchTree::InsertFixup(Node* node)
 					//-->리스트형태로 만들어줌
 				}
 				//리스트(내가 왼쪽)
-				
+
 					//부모를 블랙, 조부모는 레드, 조부모 중심으로 우회전
-					node->parent->color = Color::Black;
-					node ->parent->parent->color = Color::Red;
-					RightRotate(node->parent->parent);
-				
+				node->parent->color = Color::Black;
+				node->parent->parent->color = Color::Red;
+				RightRotate(node->parent->parent);
+
 
 			}
 		}
@@ -177,12 +178,12 @@ void BinarySearchTree::InsertFixup(Node* node)
 					//-->리스트형태로 만들어줌
 				}
 				//리스트(내가 왼쪽)
-				
+
 					//부모를 블랙, 조부모는 레드, 조부모 중심으로 우회전
-					node->parent->color = Color::Black;
-					node->parent->parent->color = Color::Red;
-					LeftRotate(node->parent->parent);
-				
+				node->parent->color = Color::Black;
+				node->parent->parent->color = Color::Red;
+				LeftRotate(node->parent->parent);
+
 			}
 		}
 	}
@@ -254,7 +255,7 @@ void BinarySearchTree::Delete(int key)
 	//2. 자식 하나
 	//3. 자식 둘 --> 삭제될 것의 Next는 자신의 위치에 오고 Next삭제함수 호출
 
-	Node* deleteNode = Search( key, _root);
+	Node* deleteNode = Search(key, _root);
 	Delete(deleteNode);
 }
 
@@ -267,7 +268,7 @@ void BinarySearchTree::Delete(Node* node)
 	if (node->left == _nil) //자식이 하나도 없거나 하나만있을 때
 	{
 		//삭제할 노드의 정보
-		Color color = node->color; 
+		Color color = node->color;
 		Node* right = node->right;
 
 		Replace(node, node->right);
@@ -290,7 +291,7 @@ void BinarySearchTree::Delete(Node* node)
 		Delete(next);
 	}
 
-	
+
 
 }
 
@@ -302,7 +303,7 @@ void BinarySearchTree::DeleteFixup(Node* node)
 	//[case1][case2]
 	while (x != _root && x->color == Color::Black)
 	{
-		if(x == x->parent->left) //삭제할 노드의 위치 확인
+		if (x == x->parent->left) //삭제할 노드의 위치 확인
 		{
 			//[case3]체크
 			Node* s = x->parent->right;
@@ -316,7 +317,7 @@ void BinarySearchTree::DeleteFixup(Node* node)
 				s = x->parent->right; //형제가 바뀌었으니 갱신해줌
 			}
 			//case 4
-			if(s->left->color == Color::Black && s->right->color == Color::Black)
+			if (s->left->color == Color::Black && s->right->color == Color::Black)
 			{
 				s->color = Color::Red;
 				x = x->parent;
@@ -375,7 +376,7 @@ void BinarySearchTree::DeleteFixup(Node* node)
 			}
 
 		}
-		
+
 	}
 	//x의 색이 Red임
 	x->color = Color::Black;
@@ -454,3 +455,5 @@ void BinarySearchTree::RightRotate(Node* y) //up->down
 	x->right = y;
 	y->parent = x;
 }
+#endif // 0
+
