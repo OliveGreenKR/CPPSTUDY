@@ -1,4 +1,4 @@
-#if 0
+#if 1
 #include <iostream>
 #include <vector>
 #include <list>
@@ -7,6 +7,26 @@
 using namespace std;
 #include <thread>
 
+
+//힙 정렬
+void HeapSort(vector<int>& v)
+{
+	priority_queue<int, vector<int>, ::greater<int>> pq;
+
+	for (int num : v)
+	{
+		pq.push(num);
+	}
+
+	v.clear();
+
+	while (pq.empty())
+	{
+		v.push_back(pq.top());
+		pq.pop();
+	}
+
+}
 
 //버블정렬 
 void BubbleSort(vector<int>& v)
