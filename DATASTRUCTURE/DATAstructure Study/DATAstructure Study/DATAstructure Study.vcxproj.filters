@@ -11,6 +11,7 @@
     <ClCompile Include="PriorityQueue_basic.cpp" />
     <ClCompile Include="Tree_BST_RedBlackT.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
+    <ClCompile Include="정렬_버블,선택,삽입.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearchTree.h" />
