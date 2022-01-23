@@ -13,6 +13,7 @@ void HeapSort(vector<int>& v)
 {
 	priority_queue<int, vector<int>, ::greater<int>> pq;
 
+	//N(데이터개수) * logN(우선순위 큐 데이터 삽입)
 	for (int num : v)
 	{
 		pq.push(num);
@@ -20,15 +21,81 @@ void HeapSort(vector<int>& v)
 
 	v.clear();
 
-	while (pq.empty())
+	//N(데이터개수) * logN(우선순위 큐)
+	while (pq.empty()==false)
 	{
 		v.push_back(pq.top());
 		pq.pop();
 	}
-
+	//따라서 최종 복잡도는
+	// N log N
 }
 
-//버블정렬 
+//병합정렬_결합
+void MergeResult(vector<int>& v, int left, int mid, int right)
+{
+	//각 블럭은 정렬되어있다고 가정(정복됨)
+
+
+	int leftidx = left; //왼쪽 블럭
+	int rightidx = mid + 1; // 오른쪽 블럭
+	vector<int> tmp;
+
+	while (leftidx <= mid && rightidx <= right)
+	{
+		if (v[leftidx] <= v[rightidx])
+		{
+			tmp.push_back(v[leftidx]);
+			leftidx++;
+		}
+		else
+		{
+			tmp.push_back(v[rightidx]);
+			rightidx++;
+		}
+	}
+	//둘중 하나의 블럭이 끝난 상태
+	//왼쪽이 먼저 끝났나? 그럼 오른쪽 데이터 복사
+	if (leftidx > mid)
+	{
+		while (rightidx <= right)
+		{
+			tmp.push_back(v[rightidx]);
+			rightidx++;
+		}
+	}
+	else
+	{
+		while (leftidx <= mid)
+		{
+			tmp.push_back(v[leftidx]);
+			leftidx++;
+		}
+	}
+
+	//v는 유효영역이 정해졌기 때문에 단순복사하면 안됨.
+	for (int i = 0; i < tmp.size(); i++)
+	{
+		v[left + i] = tmp[i];
+	}
+}
+
+//병합정렬
+void MergeSort(vector<int>& v, int left, int right)
+{
+	if (left >= right) //기저상황 : 분할 마무리
+		return;
+
+	//분할 및 정복 
+	int mid = (left + right) / 2;
+	MergeSort(v, left, mid);
+	MergeSort(v, mid+1, right);
+
+	//결합하는 함수
+	MergeResult(v, left, mid, right); 
+}
+
+//버블정렬 N^2
 void BubbleSort(vector<int>& v)
 {
 	int n = static_cast<int>(v.size());
@@ -67,6 +134,7 @@ void PrintVec(const vector<int>& v)
 	}
 }
 
+//선택정렬 N^2
 void SelectionSort(vector<int>& v)
 {
 	int n = static_cast<int>(v.size());
@@ -87,7 +155,7 @@ void SelectionSort(vector<int>& v)
 		}
 	}
 }
-
+//삽입정렬 N^2
 void InsertSort(vector<int>& v)
 {
 	const int n = static_cast<int>(v.size());
@@ -108,12 +176,24 @@ void InsertSort(vector<int>& v)
 	}
 
 }
+
+
 int main()
 {
-	vector<int> v = { 100, 1,4,6,10,39 };
+	vector<int> v;
+
+	srand(time(nullptr));
+
+	for (int i = 0; i < 50; i++)
+	{
+		v.push_back(rand() % 100);
+	}
 
 	//BubbleSort(v);
-	SelectionSort(v);
+	//SelectionSort(v);
+
+	//HeapSort(v);
+	MergeSort(v, 0, v.size() - 1);
 	PrintVec(v);
 }
 #endif // 0
