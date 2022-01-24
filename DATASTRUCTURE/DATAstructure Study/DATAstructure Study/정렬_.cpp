@@ -197,50 +197,15 @@ int Partition(vector<int>& v, int left, int right)
 	swap(v[left], v[high]);
 	return high;
 }
-void QuickSort2(vector<int>& v, int left, int right)
+void QuickSort(vector<int>& v, int left, int right)
 {
 	if (left > right)
 		return;
 	int pivot = Partition(v, left, right);
 
-	QuickSort2(v, left, pivot - 1);
-	QuickSort2(v, pivot+1, right);
+	QuickSort(v, left, pivot - 1);
+	QuickSort(v, pivot+1, right);
 }
-
-void QuickSort(vector<int>& v , int left, int right)
-{
-	if (left >= right)
-		return;
-
-	int pivot = v[left];
-
-	int low = left + 1;
-	int high = right;
-
-	while (low <= right && pivot >= v[low] )
-	{
-		low++;
-	}
-
-	while (high > left && pivot <= v[high] )
-	{
-		high--;
-	}
-
-	if (low < high)
-	{
-		::swap(v[low], v[high]);
-		QuickSort(v, left, right);
-	}
-	
-	else
-	{
-		::swap(v[left], v[high]);
-		QuickSort(v, left, high - 1);
-		QuickSort(v, high+1, right);
-	}
-}
-
 int main()
 {
 	vector<int> v;
