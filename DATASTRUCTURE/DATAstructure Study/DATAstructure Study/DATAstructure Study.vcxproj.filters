@@ -14,6 +14,7 @@
     <ClCompile Include="정렬_.cpp" />
     <ClCompile Include="Hash_table.cpp" />
     <ClCompile Include="Disjointset.cpp" />
+    <ClCompile Include="Minimum Spanning Tree_Kruskal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearchTree.h" />

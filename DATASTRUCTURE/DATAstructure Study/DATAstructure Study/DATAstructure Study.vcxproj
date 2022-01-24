@@ -25,6 +25,7 @@
     <ClCompile Include="Graph_BFS.cpp" />
     <ClCompile Include="Graph_DFS.cpp" />
     <ClCompile Include="Hash_table.cpp" />
+    <ClCompile Include="Minimum Spanning Tree_Kruskal.cpp" />
     <ClCompile Include="PriorityQueue_basic.cpp" />
     <ClCompile Include="myQueue.cpp" />
     <ClCompile Include="myStack.cpp" />
