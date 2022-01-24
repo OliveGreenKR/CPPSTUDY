@@ -7,30 +7,6 @@
 using namespace std;
 #include <thread>
 
-
-//힙 정렬
-void HeapSort(vector<int>& v)
-{
-	priority_queue<int, vector<int>, ::greater<int>> pq;
-
-	//N(데이터개수) * logN(우선순위 큐 데이터 삽입)
-	for (int num : v)
-	{
-		pq.push(num);
-	}
-
-	v.clear();
-
-	//N(데이터개수) * logN(우선순위 큐)
-	while (pq.empty()==false)
-	{
-		v.push_back(pq.top());
-		pq.pop();
-	}
-	//따라서 최종 복잡도는
-	// N log N
-}
-
 //병합정렬_결합
 void MergeResult(vector<int>& v, int left, int mid, int right)
 {
@@ -89,10 +65,10 @@ void MergeSort(vector<int>& v, int left, int right)
 	//분할 및 정복 
 	int mid = (left + right) / 2;
 	MergeSort(v, left, mid);
-	MergeSort(v, mid+1, right);
+	MergeSort(v, mid + 1, right);
 
 	//결합하는 함수
-	MergeResult(v, left, mid, right); 
+	MergeResult(v, left, mid, right);
 }
 
 //버블정렬 N^2
@@ -177,6 +153,34 @@ void InsertSort(vector<int>& v)
 
 }
 
+//힙 정렬
+void HeapSort(vector<int>& v)
+{
+	priority_queue<int, vector<int>, ::greater<int>> pq;
+
+	//N(데이터개수) * logN(우선순위 큐 데이터 삽입)
+	for (int num : v)
+	{
+		pq.push(num);
+	}
+
+	v.clear();
+
+	//N(데이터개수) * logN(우선순위 큐)
+	while (pq.empty()==false)
+	{
+		v.push_back(pq.top());
+		pq.pop();
+	}
+	//따라서 최종 복잡도는
+	// N log N
+}
+
+//퀵 정렬
+void QuickSort(vector<int>& v)
+{
+
+}
 
 int main()
 {
