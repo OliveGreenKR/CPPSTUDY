@@ -13,6 +13,7 @@
     <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="정렬_.cpp" />
     <ClCompile Include="Hash_table.cpp" />
+    <ClCompile Include="Disjointset.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearchTree.h" />
