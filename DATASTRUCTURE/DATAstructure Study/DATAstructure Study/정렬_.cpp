@@ -177,9 +177,68 @@ void HeapSort(vector<int>& v)
 }
 
 //Äü Á¤·Ä
-void QuickSort(vector<int>& v)
+int Partition(vector<int>& v, int left, int right)
 {
+	int pivot = v[left];
 
+	int low = left + 1;
+	int high = right;
+
+	while (low <= high)
+	{
+		while (low <= right && pivot >= v[low] )
+			low++;
+		while (high >= left + 1 && pivot <= v[high])
+			high--;
+		if (low < high)
+			::swap(v[low], v[high]);
+	}
+
+	swap(v[left], v[high]);
+	return high;
+}
+void QuickSort2(vector<int>& v, int left, int right)
+{
+	if (left > right)
+		return;
+	int pivot = Partition(v, left, right);
+
+	QuickSort2(v, left, pivot - 1);
+	QuickSort2(v, pivot+1, right);
+}
+
+void QuickSort(vector<int>& v , int left, int right)
+{
+	if (left >= right)
+		return;
+
+	int pivot = v[left];
+
+	int low = left + 1;
+	int high = right;
+
+	while (low <= right && pivot >= v[low] )
+	{
+		low++;
+	}
+
+	while (high > left && pivot <= v[high] )
+	{
+		high--;
+	}
+
+	if (low < high)
+	{
+		::swap(v[low], v[high]);
+		QuickSort(v, left, right);
+	}
+	
+	else
+	{
+		::swap(v[left], v[high]);
+		QuickSort(v, left, high - 1);
+		QuickSort(v, high+1, right);
+	}
 }
 
 int main()
@@ -197,7 +256,8 @@ int main()
 	//SelectionSort(v);
 
 	//HeapSort(v);
-	MergeSort(v, 0, v.size() - 1);
+	//MergeSort(v, 0, v.size() - 1);
+	QuickSort(v, 0, v.size()-1);
 	PrintVec(v);
 }
 #endif // 0
