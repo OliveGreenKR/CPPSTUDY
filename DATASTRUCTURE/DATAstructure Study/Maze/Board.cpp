@@ -196,7 +196,6 @@ void Board::GenerateMap_Prim()
 	//다익스트라 :  best는 [시작점]기준으로한  cost
 	//PRIM : best는 [현재 트리]를 기준으로 한 cost
 
-
 	for (int32 y = 0; y < _size; y++)
 	{
 		for (int32 x = 0; x < _size; x++)
@@ -249,7 +248,6 @@ void Board::GenerateMap_Prim()
 			pq.push(edge);
 		}
 	}
-
 }
 
 TileType Board::GetTileType(Pos pos)
