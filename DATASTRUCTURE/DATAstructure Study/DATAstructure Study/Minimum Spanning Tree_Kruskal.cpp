@@ -1,4 +1,4 @@
-#if 1
+#if 0
 #include <iostream>
 #include <vector>
 #include <list>
@@ -124,6 +124,7 @@ int Kruskal(vector<CostEdge>& selected)
 		// 같은 그룹이면 스킵(사이클 방지)
 		if (sets.Find(edge.u) == sets.Find(edge.v))
 			continue;
+
 		//타 그룹끼리 병합
 		sets.Merge(edge.u , edge.v);
 		selected.push_back(edge);
