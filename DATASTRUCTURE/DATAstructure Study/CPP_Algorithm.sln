@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlgorithmStudy", "DATAstruc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Maze", "Maze\Maze.vcxproj", "{ECDFAEEC-E48F-4F24-9865-48984DD45FA0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dinamic Programming", "Dinamic Programming\Dinamic Programming.vcxproj", "{54EBD2A4-0083-454A-A855-7407E46CFD4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{ECDFAEEC-E48F-4F24-9865-48984DD45FA0}.Release|x64.Build.0 = Release|x64
 		{ECDFAEEC-E48F-4F24-9865-48984DD45FA0}.Release|x86.ActiveCfg = Release|Win32
 		{ECDFAEEC-E48F-4F24-9865-48984DD45FA0}.Release|x86.Build.0 = Release|Win32
+		{54EBD2A4-0083-454A-A855-7407E46CFD4D}.Debug|x64.ActiveCfg = Debug|x64
+		{54EBD2A4-0083-454A-A855-7407E46CFD4D}.Debug|x64.Build.0 = Debug|x64
+		{54EBD2A4-0083-454A-A855-7407E46CFD4D}.Debug|x86.ActiveCfg = Debug|Win32
+		{54EBD2A4-0083-454A-A855-7407E46CFD4D}.Debug|x86.Build.0 = Debug|Win32
+		{54EBD2A4-0083-454A-A855-7407E46CFD4D}.Release|x64.ActiveCfg = Release|x64
+		{54EBD2A4-0083-454A-A855-7407E46CFD4D}.Release|x64.Build.0 = Release|x64
+		{54EBD2A4-0083-454A-A855-7407E46CFD4D}.Release|x86.ActiveCfg = Release|Win32
+		{54EBD2A4-0083-454A-A855-7407E46CFD4D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
