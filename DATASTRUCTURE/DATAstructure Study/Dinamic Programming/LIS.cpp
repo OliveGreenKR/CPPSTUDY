@@ -67,12 +67,24 @@ int LIS(vector<int>& seq, int pos)
 	return ret;
 }
 
+int GetLIS(vector<int>& seq)
+{
+	int ret = 1;
+
+	for (int pos = 0; pos < seq.size(); pos++)
+	{
+		ret = max(ret, LIS(seq, pos));
+	}
+
+	return ret;
+}
 int main()
 {
 	::memset(cache, -1,sizeof(cache));
 	seq = vector<int>{ 1,9,2,5,7 };
+	seq = vector<int>{ 7,1,2,5,7 };
 
-	int ans = LIS(seq, 0);
+	int ans = GetLIS(seq);
 }
 
 #endif // 1
