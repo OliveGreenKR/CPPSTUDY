@@ -1,7 +1,6 @@
-#if 1
+#if 0
 #include <vector>
 #include <iostream>
-#include <Windows.h>
 using namespace std;
 
 /*
