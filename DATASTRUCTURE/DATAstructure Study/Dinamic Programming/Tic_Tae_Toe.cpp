@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <map>
+#include<Windows.h>
 using namespace std;
 
 /*
@@ -98,7 +99,7 @@ int CanWin(vector<vector<char>>& board,char turn)
 
 	//캐시확인
 	int key = HashKey(board);
-	int& ret = cache[key];
+	int& ret = cache[key]; //참조로 받아서 저장이 되게끔 
 	if (ret != DEFAULT)
 	{
 		return ret;
@@ -134,8 +135,6 @@ int CanWin(vector<vector<char>>& board,char turn)
 	else 
 	ret = -minValue;
 
-	cache[key] = ret;
-
 	return ret;
 }
 
@@ -158,7 +157,13 @@ int main()
 		cache[i] = DEFAULT;
 	}
 
+	int start = GetTickCount64();
+
 	int win = CanWin(board, 'x');
+
+	int end = GetTickCount64();
+
+	cout << "Time  " << end - start << " ms" << endl;
 
 	switch (win)
 	{
