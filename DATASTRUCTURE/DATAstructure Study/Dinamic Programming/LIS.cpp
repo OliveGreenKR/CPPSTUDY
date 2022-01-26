@@ -64,14 +64,13 @@ int LIS(vector<int>& seq, int pos)
 	//ret += max;
 	cache[pos] = ret;
 
-	return cache[pos];
+	return ret;
 }
 
 int main()
 {
 	::memset(cache, -1,sizeof(cache));
 	seq = vector<int>{ 1,9,2,5,7 };
-	seq = vector<int>{ 1,3,2,7 };
 
 	int ans = LIS(seq, 0);
 }
