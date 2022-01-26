@@ -16,5 +16,8 @@
     <ClCompile Include="Triangle_path.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tic_Tae_Toe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
