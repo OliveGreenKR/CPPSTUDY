@@ -145,10 +145,9 @@ int main()
 {
 	board = vector<vector<char>>
 	{
-		{'.', '.', '.'},
-		{'.', '.', '.'},
-		{'.', '.', '.'},
-		{'.', '.', '.'}
+		{'o', 'x', 'x'},
+		{'.', 'o', '.'},
+		{'o', '.', '.'}
 	};
 	//이렇게 하면 안됨
 	/*::memset(cache, DEFAULT, sizeof(cache));*/
@@ -159,7 +158,7 @@ int main()
 		cache[i] = DEFAULT;
 	}
 
-	int win = CanWin(board, 'o');
+	int win = CanWin(board, 'x');
 
 	switch (win)
 	{
